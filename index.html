@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Bizim Hikayemiz ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#111;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+header{
+padding:40px;
+}
+
+h1{
+font-size:55px;
+color:#ff4d6d;
+margin-bottom:15px;
+animation:parla 2s infinite;
+}
+
+@keyframes parla{
+50%{opacity:.5;}
+}
+
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.gallery{
+display:none;
+padding:40px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:20px;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 0 20px #ff4d6d;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+#popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+}
+
+#popup img{
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+}
+
+.heart{
+position:fixed;
+color:#ff4d6d;
+font-size:25px;
+animation:fall 5s linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+footer{
+padding:40px;
+font-size:22px;
+color:#ff9db5;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h1>❤️ Bizim Hikayemiz ❤️</h1>
+
+<button onclick="basla()">Bana Dokun ❤️</button>
+
+</header>
+
+<div class="gallery" id="galeri">
+
+<img src="1.jpg" onclick="buyut(this.src)">
+<img src="2.jpg" onclick="buyut(this.src)">
+<img src="3.jpg" onclick="buyut(this.src)">
+<img src="4.jpg" onclick="buyut(this.src)">
+<img src="5.jpg" onclick="buyut(this.src)">
+<img src="6.jpg" onclick="buyut(this.src)">
+<img src="7.jpg" onclick="buyut(this.src)">
+<img src="8.jpg" onclick="buyut(this.src)">
+
+</div>
+
+<div id="popup" onclick="kapat()">
+<img id="buyuk">
+</div>
+
+<footer>
+
+❤️ Seni Çok Seviyorum ❤️
+
+</footer>
+
+<script>
+
+function basla(){
+
+document.getElementById("galeri").style.display="grid";
+
+for(let i=0;i<80;i++){
+
+let kalp=document.createElement("div");
+
+kalp.className="heart";
+
+kalp.innerHTML="❤️";
+
+kalp.style.left=Math.random()*100+"vw";
+
+kalp.style.fontSize=(20+Math.random()*30)+"px";
+
+kalp.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(kalp);
+
+setTimeout(()=>kalp.remove(),6000);
+
+}
+
+}
+
+function buyut(resim){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("buyuk").src=resim;
+
+}
+
+function kapat(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>
